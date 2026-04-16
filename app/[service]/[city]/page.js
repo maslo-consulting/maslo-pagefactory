@@ -1,5 +1,6 @@
 import { services, cities, getServiceBySlug, getCityBySlug, generateStaticParams as genParams } from '../../../lib/data'
 import Link from 'next/link'
+import ContactForm from './form'
 
 export async function generateStaticParams() {
   return genParams()
@@ -96,7 +97,7 @@ export default function Page({ params }) {
       <div style={{background:O,padding:'56px 24px'}}>
         <div style={{maxWidth:'1100px',margin:'0 auto'}}>
           <h2 style={{fontFamily:"Georgia,serif",fontSize:'32px',fontWeight:500,color:N,marginBottom:'32px'}}>
-            Frequently asked questions - {service.name} in {city.name}
+            Frequently asked questions
           </h2>
           {service.faq.map((item,i) => (
             <div key={i} style={{borderBottom:'0.5px solid #C8C5BC',padding:'20px 0'}}>
@@ -111,25 +112,7 @@ export default function Page({ params }) {
         <div style={{maxWidth:'700px',margin:'0 auto',textAlign:'center'}}>
           <h2 style={{fontFamily:"Georgia,serif",fontSize:'34px',fontWeight:500,color:W,marginBottom:'16px'}}>Talk to a Maslo specialist in {city.name}</h2>
           <p style={{fontSize:'14px',color:'rgba(255,255,255,0.6)',marginBottom:'32px'}}>We respond within 2 business hours.</p>
-          <form id="pf-form" style={{display:'flex',flexDirection:'column',gap:'12px',textAlign:'left'}}>
-            <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:'10px'}}>
-              <input name="name" placeholder="Your name" required style={{background:'rgba(255,255,255,0.06)',border:'0.5px solid rgba(201,168,76,0.2)',color:W,fontSize:'13px',padding:'12px',outline:'none',fontFamily:'inherit'}}/>
-              <input name="phone" placeholder="Phone number" required style={{background:'rgba(255,255,255,0.06)',border:'0.5px solid rgba(201,168,76,0.2)',color:W,fontSize:'13px',padding:'12px',outline:'none',fontFamily:'inherit'}}/>
-            </div>
-            <input name="email" type="email" placeholder="Work email" required style={{background:'rgba(255,255,255,0.06)',border:'0.5px solid rgba(201,168,76,0.2)',color:W,fontSize:'13px',padding:'12px',outline:'none',fontFamily:'inherit'}}/>
-            <input name="company" placeholder="Company name" style={{background:'rgba(255,255,255,0.06)',border:'0.5px solid rgba(201,168,76,0.2)',color:W,fontSize:'13px',padding:'12px',outline:'none',fontFamily:'inherit'}}/>
-            <input type="hidden" name="service" value={service.name}/>
-            <input type="hidden" name="city" value={city.name}/>
-            <button type="submit" onClick={async(e)=>{
-              e.preventDefault()
-              const form = document.getElementById('pf-form')
-              const data = new FormData(form)
-              const r = await fetch('https://formspree.io/f/xrerbnyv',{method:'POST',body:data,headers:{Accept:'application/json'}})
-              if(r.ok){form.innerHTML='<p style="color:#C9A84C;font-size:18px;text-align:center;padding:24px">Thank you. We will contact you within 2 business hours.</p>'}
-            }} style={{background:G,color:N,fontSize:'14px',fontWeight:500,padding:'14px',border:'none',cursor:'pointer'}}>
-              {service.ctaText}
-            </button>
-          </form>
+          <ContactForm service={service.name} city={city.name} ctaText={service.ctaText}/>
         </div>
       </div>
 
