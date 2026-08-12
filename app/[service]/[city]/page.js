@@ -65,7 +65,7 @@ export default function Page({ params }) {
             {service.pageTitle} in {city.name}
           </h1>
           <p style={{fontSize:'16px',color:'rgba(255,255,255,0.65)',lineHeight:1.8,maxWidth:'580px',marginBottom:'32px'}}>
-            {service.description} {city.name}, {city.state}. Maslo Consulting brings 20+ years of HR experience and 5 proprietary AI tools.
+            {service.description} {city.name}, {city.state}. Maslo Consulting brings 20+ years of HR experience and 4 proprietary AI tools.
           </p>
           <div style={{display:'flex',gap:'12px',flexWrap:'wrap'}}>
             <a href="#contact" style={{background:G,color:N,fontSize:'14px',fontWeight:500,padding:'13px 28px',textDecoration:'none'}}>{service.ctaText}</a>
@@ -80,7 +80,7 @@ export default function Page({ params }) {
           <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(240px,1fr))',gap:'16px'}}>
             {[
               {icon:'20+',title:'Years of HR expertise',body:'Practitioners who have spent careers inside MNCs across India.'},
-              {icon:'5',title:'Proprietary AI products',body:'Languapro, ER Studio, Compliance360, Campus Career, AI Interviewer.'},
+              {icon:'4',title:'Proprietary AI products',body:'Languapro, ER Studio, Compliance360, TalentSphere AI.'},
               {icon:'40+',title:'Companies served',body:'Startups, SMEs, and enterprises across India and globally.'},
               {icon:'100%',title:'End-to-end delivery',body:'We implement, not just advise. Every engagement includes execution.'},
             ].map((item,i) => (
