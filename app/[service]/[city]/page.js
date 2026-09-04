@@ -80,7 +80,7 @@ export default function Page({ params }) {
           <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(240px,1fr))',gap:'16px'}}>
             {[
               {icon:'20+',title:'Years of HR expertise',body:'Practitioners who have spent careers inside MNCs across India.'},
-              {icon:'4',title:'Proprietary AI products',body:'MasloLanguapro, SimuLead, Compliance360, Maslo Campus360.'},
+              {icon:'4',title:'Proprietary AI products',body:'MasloLanguapro, Maslo SimuLead, MasloCompliance360, Maslo Campus360.'},
               {icon:'40+',title:'Companies served',body:'Startups, SMEs, and enterprises across India and globally.'},
               {icon:'100%',title:'End-to-end delivery',body:'We implement, not just advise. Every engagement includes execution.'},
             ].map((item,i) => (
